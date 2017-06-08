@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TestAlertView" customModule="AlertTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BO8-nQ-ecC">
+                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SLD-8Q-001">
+                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="1dL-Qn-zV8"/>
+                            </constraints>
+                            <state key="normal" title="关闭"/>
+                            <connections>
+                                <action selector="closeBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="dpm-S3-ctc"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.25981905395136778" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="SLD-8Q-001" firstAttribute="top" secondItem="BO8-nQ-ecC" secondAttribute="top" id="Cog-8e-vUm"/>
+                        <constraint firstAttribute="bottom" secondItem="SLD-8Q-001" secondAttribute="bottom" id="Oa7-ap-lhd"/>
+                        <constraint firstAttribute="height" constant="44" id="fKh-gu-HPo"/>
+                        <constraint firstItem="SLD-8Q-001" firstAttribute="leading" secondItem="BO8-nQ-ecC" secondAttribute="leading" id="xtn-e2-c9h"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="测试" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5q-YR-Zfz">
+                    <rect key="frame" x="120" y="107" width="61" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                    <color key="textColor" red="0.42356098024316102" green="0.5" blue="0.25981905395136778" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w7j-Oe-dSB">
+                    <rect key="frame" x="75" y="196" width="150" height="34"/>
+                    <color key="backgroundColor" red="0.97126709726443772" green="0.70432418313069789" blue="0.94502754559270519" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="150" id="Cbb-Vb-Jrc"/>
+                    </constraints>
+                    <state key="normal" title="确定">
+                        <color key="titleColor" red="0.054485657294832741" green="0.77949278115501508" blue="0.12154492781155016" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="qureBtnClick:" destination="iN0-l3-epB" eventType="touchUpInside" id="21Q-2r-B6u"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="S5q-YR-Zfz" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="GZS-Cv-uxh"/>
+                <constraint firstItem="BO8-nQ-ecC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IvL-BO-pYd"/>
+                <constraint firstItem="BO8-nQ-ecC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VEv-YL-xqt"/>
+                <constraint firstItem="S5q-YR-Zfz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Yw3-7k-LMJ"/>
+                <constraint firstAttribute="bottom" secondItem="w7j-Oe-dSB" secondAttribute="bottom" constant="20" id="aH7-qh-GnB"/>
+                <constraint firstItem="w7j-Oe-dSB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="ciX-n4-tCZ"/>
+                <constraint firstAttribute="trailing" secondItem="BO8-nQ-ecC" secondAttribute="trailing" id="oKR-Zz-X2B"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+</document>
