@@ -91,7 +91,11 @@ class BasicViewModel:NSObject {
     //MARK: 弹框从底部进入的动画
     fileprivate func bottomInAnimation() {
         UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseIn, animations: {
-            self.alertVi.center = self.backgroundView.center
+            if self.animationStyle == .BottomInBottomOut {
+                self.alertVi.center = CGPoint(x: self.backgroundView.center.x, y: UIScreen.main.bounds.height - self.alertVi.bounds.height*0.5)
+            }else{
+                self.alertVi.center = self.backgroundView.center
+            }
         }, completion: { (finished) in
             if finished { self.backgroundView.isUserInteractionEnabled = true }
         })
