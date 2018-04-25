@@ -9,7 +9,7 @@
 import UIKit
 
 enum BasicAnimation {
-    case BottomInBottomOut,BottomInTopOut  //
+    case BottomInBottomOut,BottomInTopOut,BottomInInsetBottomOut  //
 }
 
 class BasicViewModel:NSObject {
@@ -37,7 +37,8 @@ class BasicViewModel:NSObject {
     var animationDuration = 0.6
     //MARK: 动画执行完成后调用
     var animationDidStopClosure:(() -> Void)?
-    
+    //MARK: 距离底部边距
+    var bottomInset:CGFloat = 15
     
     override init() {
         super.init()
@@ -76,6 +77,8 @@ class BasicViewModel:NSObject {
             bottomInAnimation()
         case .BottomInTopOut:
             bottomInAnimation()
+        case .BottomInInsetBottomOut:
+            bottomInAnimation()
         }
     }
     //MARK: 结束动画的方法
@@ -85,6 +88,8 @@ class BasicViewModel:NSObject {
             bottomOutAnimation()
         case .BottomInTopOut:
             topOutAnimation()
+        case .BottomInInsetBottomOut:
+            bottomOutAnimation()
         }
     }
     /**---------------------------UIViewAnimation,BEGIN---------------------------**/
@@ -93,8 +98,10 @@ class BasicViewModel:NSObject {
         UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseIn, animations: {
             if self.animationStyle == .BottomInBottomOut {
                 self.alertVi.center = CGPoint(x: self.backgroundView.center.x, y: UIScreen.main.bounds.height - self.alertVi.bounds.height*0.5)
-            }else{
+            }else if self.animationStyle == .BottomInTopOut{
                 self.alertVi.center = self.backgroundView.center
+            }else if self.animationStyle == .BottomInInsetBottomOut {
+                self.alertVi.center = CGPoint(x: self.backgroundView.center.x, y: UIScreen.main.bounds.height - self.alertVi.bounds.height*0.5 - self.bottomInset)
             }
         }, completion: { (finished) in
             if finished { self.backgroundView.isUserInteractionEnabled = true }
@@ -104,7 +111,7 @@ class BasicViewModel:NSObject {
     fileprivate func bottomOutAnimation() {
         backgroundView.isUserInteractionEnabled = false
         UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut, animations: {
-            self.alertVi.center = CGPoint(x: self.backgroundView.center.x, y: UIScreen.main.bounds.height + self.alertVi.bounds.height*0.5)
+            self.alertVi.center = CGPoint(x: self.backgroundView.center.x, y: UIScreen.main.bounds.height + self.alertVi.bounds.height*0.5 + self.bottomInset)
         }, completion: { (finished) in
             if finished {
                 self.bottomVi.removeFromSuperview()
